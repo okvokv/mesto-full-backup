@@ -1,0 +1,9 @@
+.form__field_type_avatarlink:last-of-type {
+	margin-top: 22px;
+}
+
+@media screen and (max-width: 619px) {
+	.form__field_type_avatarlink:last-of-type {
+		margin-top: 32px;
+	}
+}

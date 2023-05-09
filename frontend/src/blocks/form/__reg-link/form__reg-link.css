@@ -1,0 +1,10 @@
+.form__reg-link {
+	color: #FFFFFF;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.form__reg-link:hover {
+	opacity: 0.6;
+	transition: 0s;
+}
