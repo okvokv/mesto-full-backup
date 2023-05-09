@@ -17,4 +17,4 @@ IP <84.201.136.149>
 
 Frontend  https://okvokv-front.students.nomoredomains.monster
 
-Backend   https://okvokv-back.students.nomoredomains.monster"# react-mesto-api-full-gha" 
+Backend   https://okvokv-back.students.nomoredomains.monster 
