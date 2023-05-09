@@ -1,6 +1,6 @@
 import BaseApi from './BaseApi.js';
 //параметры подключения: 
-const baseUrl = 'https://auth.nomoreparties.co';
+const baseUrl = 'https://okvokv-back.students.nomoredomains.monster';
 const headers = { 'Content-Type': 'application/json' };
 class Auth extends BaseApi {
 	constructor(baseUrl, headers) {
@@ -40,7 +40,7 @@ class Auth extends BaseApi {
 			headers: {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${_token}`,
-				// credentials: 'include',
+				credentials: 'include', // отсылать куки при расположении b/f на разных доменах
 			}
 		})
 	};
