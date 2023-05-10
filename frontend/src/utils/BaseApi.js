@@ -2,7 +2,7 @@
 export default class BaseApi {
 	constructor() {
 		//параметры подключения: 
-		this.baseUrl = 'https://okvokv-back.students.nomoredomains.monster';
+		this._baseUrl = 'https://okvokv-back.students.nomoredomains.monster';
 	}
 
 	_getToken() {

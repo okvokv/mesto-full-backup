@@ -3,14 +3,14 @@ import BaseApi from './BaseApi.js';
 class Auth extends BaseApi {
 	constructor(){
 		super();
-		this.headers = {'Content-Type': 'application/json'};
+		this._headers = {'Content-Type': 'application/json'};
 	}
 	
 	//метод регистрации пользователя
 	registrate(_email, _password) {
 		return this._request('signup', {
 			method: 'POST',
-			headers: this.headers,
+			headers: this._headers,
 			body: JSON.stringify({
 				email: _email,
 				password: _password
@@ -22,7 +22,7 @@ class Auth extends BaseApi {
 	logIn(_email, _password) {
 		return this._request('signin', {
 			method: 'POST',
-			headers: this.headers,
+			headers: this._headers,
 			body: JSON.stringify({
 				email: _email,
 				password: _password
