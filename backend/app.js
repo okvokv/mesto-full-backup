@@ -58,19 +58,20 @@ app.use((err, req, res, next) => {
 });
 
 // разрешённые адреса запросов
-const allowedCors = [
-  'http://okvokv-back.students.nomoredomains.monster/*',
-  'https://okvokv-back.students.nomoredomains.monster/*',
-  'http://okvokv-front.students.nomoredomains.monster/*',
-  'https://okvokv-front.students.nomoredomains.monster/*',
-  'http://github.com/*',
-  'https://github.com/*',
-  'localhost:3000/*',
-  '0.0.0.0/*',
-];
+// const allowedCors = [
+// 'http://okvokv-back.students.nomoredomains.monster/*',
+// 'https://okvokv-back.students.nomoredomains.monster/*',
+// 'http://okvokv-front.students.nomoredomains.monster/*',
+// 'https://okvokv-front.students.nomoredomains.monster/*',
+// 'http://github.com/*',
+// 'https://github.com/*',
+// 'localhost:3000/*',
+// '0.0.0.0/*',
+// ];
 
 // обработчик CORS
-app.use(cors({ origin: allowedCors }));
+app.use(cors());
+// app.use(cors({ origin: allowedCors }));
 
 // включение прослушивания  порта
 app.listen(PORT, () => {
