@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/react-mesto-auth/static/css/main.f9425268.css",
+    "main.js": "/react-mesto-auth/static/js/main.e62b9d29.js",
+    "static/media/Inter-Black.woff?v=3.19": "/react-mesto-auth/static/media/Inter-Black.fd37f7e052bea1018058.woff",
+    "static/media/Inter-Regular.woff?v=3.19": "/react-mesto-auth/static/media/Inter-Regular.34ed58565339f4f3be40.woff",
+    "static/media/Inter-Regular.woff2?v=3.19": "/react-mesto-auth/static/media/Inter-Regular.4c96ed73beaf6d1e6cc7.woff2",
+    "static/media/Inter-Medium.woff?v=3.19": "/react-mesto-auth/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Medium.woff2?v=3.19": "/react-mesto-auth/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/logo.svg": "/react-mesto-auth/static/media/logo.bbe2a6eafac19c3d031c272c424875ca.svg",
+    "static/media/like-icon.svg": "/react-mesto-auth/static/media/like-icon.0e390048c288271ab07f.svg",
+    "index.html": "/react-mesto-auth/index.html",
+    "static/media/trash.svg": "/react-mesto-auth/static/media/trash.e3c42771bff3aaa52f76.svg",
+    "static/media/reg-failure.svg": "/react-mesto-auth/static/media/reg-failure.d4ce2a261b68c6da973d51ef98afae1a.svg",
+    "static/media/reg-success.svg": "/react-mesto-auth/static/media/reg-success.a9eb6caf1da3ff48b215fb1dd9477d74.svg",
+    "static/media/like-icon-active.svg": "/react-mesto-auth/static/media/like-icon-active.dd6a61e81552be95f4b7.svg",
+    "static/media/edit-button-vector.svg": "/react-mesto-auth/static/media/edit-button-vector.6c7bf05444b9793fdf6e.svg",
+    "static/media/close-button.svg": "/react-mesto-auth/static/media/close-button.039f1f5203f653b4bacd.svg",
+    "static/media/add-button-vector.svg": "/react-mesto-auth/static/media/add-button-vector.bed8c136e13907f5eefb.svg",
+    "main.f9425268.css.map": "/react-mesto-auth/static/css/main.f9425268.css.map",
+    "main.e62b9d29.js.map": "/react-mesto-auth/static/js/main.e62b9d29.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9425268.css",
+    "static/js/main.e62b9d29.js"
+  ]
+}
