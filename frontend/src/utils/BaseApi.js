@@ -1,9 +1,14 @@
 //общая часть запроса и его обработка
 export default class BaseApi {
-	constructor(baseUrl) {
-		this._baseUrl = baseUrl;
+	constructor() {
+		//параметры подключения: 
+		this.baseUrl = 'https://okvokv-back.students.nomoredomains.monster';
 	}
-	
+
+	_getToken() {
+		return `Bearer ${localStorage.getItem('jwt')}`
+	}
+
 	_request(_endUrl, _options) {
 		return fetch(`${this._baseUrl}/${_endUrl}`, _options)
 			.then(res => {

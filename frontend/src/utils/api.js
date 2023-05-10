@@ -1,22 +1,16 @@
+// информационные запросы
 import BaseApi from './BaseApi.js';
-//параметры подключения: 
-const baseUrl = 'https://okvokv-back.students.nomoredomains.monster';
-const headers = {
-	Authorization: 'ba4cd59f-b9e5-45d4-a657-2ca4f8fa9389', // --- //
-	'Content-Type': 'application/json'
-};
 class Api extends BaseApi {
-	constructor(baseUrl, headers) {
-		super(baseUrl)
-		this._baseUrl = baseUrl;
-		this._headers = headers;
-	};
 
 	//метод получения данных пользователя
 	_getUserData() {
 		return this._request('users/me', {
 			method: 'GET',
-			headers: this._headers,
+			headers: {
+				'Content-Type': 'application/json',
+				authorization: this._getToken(),
+				credentials: 'include'
+			}
 		})
 	};
 
@@ -24,7 +18,11 @@ class Api extends BaseApi {
 	getAllCardsData() {
 		return this._request('cards', {
 			method: 'GET',
-			headers: this._headers,
+			headers: {
+				'Content-Type': 'application/json',
+				authorization: this._getToken(),
+				credentials: 'include'
+			}
 		})
 	};
 
@@ -37,7 +35,11 @@ class Api extends BaseApi {
 	setAvatar(_link) {
 		return this._request('users/me/avatar', {
 			method: 'PATCH',
-			headers: this._headers,
+			headers: {
+				'Content-Type': 'application/json',
+				authorization: this._getToken(),
+				credentials: 'include'
+			},
 			body: JSON.stringify({
 				avatar: _link
 			})
@@ -48,7 +50,11 @@ class Api extends BaseApi {
 	setUserInfo(_name, _description) {
 		return this._request('users/me', {
 			method: 'PATCH',
-			headers: this._headers,
+			headers: {
+				'Content-Type': 'application/json',
+				authorization: this._getToken(),
+				credentials: 'include'
+			},
 			body: JSON.stringify({
 				name: _name,
 				about: _description
@@ -60,7 +66,11 @@ class Api extends BaseApi {
 	addNewCard(_cardName, _cardLink) {
 		return this._request('cards', {
 			method: 'POST',
-			headers: this._headers,
+			headers: {
+				'Content-Type': 'application/json',
+				authorization: this._getToken(),
+				credentials: 'include'
+			},
 			body: JSON.stringify({
 				name: _cardName,
 				link: _cardLink
@@ -72,7 +82,11 @@ class Api extends BaseApi {
 	deleteCard(_cardId) {
 		return this._request(`cards/${_cardId}`, {
 			method: 'DELETE',
-			headers: this._headers,
+			headers: {
+				'Content-Type': 'application/json',
+				authorization: this._getToken(),
+				credentials: 'include'
+			}
 		})
 	};
 
@@ -80,7 +94,11 @@ class Api extends BaseApi {
 	setLike(_cardId) {
 		return this._request(`cards/${_cardId}/likes`, {
 			method: 'PUT',
-			headers: this._headers,
+			headers: {
+				'Content-Type': 'application/json',
+				authorization: this._getToken(),
+				credentials: 'include'
+			}
 		})
 	};
 
@@ -88,13 +106,17 @@ class Api extends BaseApi {
 	deleteLike(_cardId) {
 		return this._request(`cards/${_cardId}/likes`, {
 			method: 'DELETE',
-			headers: this._headers,
+			headers: {
+				'Content-Type': 'application/json',
+				authorization: this._getToken(),
+				credentials: 'include'
+			}
 		})
 	};
 
 };
 
 //инициализация класса запросов к серверу
-const api = new Api(baseUrl, headers);
+const api = new Api();
 
 export default api;

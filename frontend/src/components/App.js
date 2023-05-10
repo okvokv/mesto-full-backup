@@ -84,8 +84,9 @@ function App() {
   function handleTokenCheck() {
     const token = localStorage.getItem('jwt');
     if (token) {
+      // вызов ф-ии, отправляющей жетон в заголовках, а если он отправляется из кук ?
       auth.checkToken(token)
-        .then(data => {
+        .then((data) => {
           setUserEmail(data.data.email);
           setLoggedIn(true);
           navigate('/');
@@ -97,14 +98,15 @@ function App() {
     };
   };
 
-  //функция отправки данных для входа и обработки ответа
+  //функция отправки данных для авторизации и обработки ответа
   function handleLogIn(email, password) {
     auth.logIn(email, password)
       .then(data => {
-        localStorage.setItem('jwt', data.token);
-        //запуск проверки жетона, чтобы получить название почты
-        handleTokenCheck();
-
+        // сохранить полученный жетон
+        localStorage.setItem('jwt', data.token); // или он сам сохраняется в куках
+        setUserEmail(email);
+        setLoggedIn(true);
+        navigate('/');
       })
       .catch(err => {
         setLoggedIn(false);

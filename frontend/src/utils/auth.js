@@ -1,19 +1,16 @@
+// административные запросы
 import BaseApi from './BaseApi.js';
-//параметры подключения: 
-const baseUrl = 'https://okvokv-back.students.nomoredomains.monster';
-const headers = { 'Content-Type': 'application/json' };
 class Auth extends BaseApi {
-	constructor(baseUrl, headers) {
-		super(baseUrl)
-		this._baseUrl = baseUrl;
-		this._headers = headers;
-	};
-
+	constructor(){
+		super();
+		this.headers = {'Content-Type': 'application/json'};
+	}
+	
 	//метод регистрации пользователя
 	registrate(_email, _password) {
 		return this._request('signup', {
 			method: 'POST',
-			headers: this._headers,
+			headers: this.headers,
 			body: JSON.stringify({
 				email: _email,
 				password: _password
@@ -21,11 +18,11 @@ class Auth extends BaseApi {
 		})
 	};
 
-	//метод авторизации зарегистрированного пользователя
+	//метод авторизации пользователя
 	logIn(_email, _password) {
 		return this._request('signin', {
 			method: 'POST',
-			headers: this._headers,
+			headers: this.headers,
 			body: JSON.stringify({
 				email: _email,
 				password: _password
@@ -39,7 +36,7 @@ class Auth extends BaseApi {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Bearer ${_token}`,
+				authorization: `Bearer ${_token}`, // отсылать жетон или
 				credentials: 'include', // отсылать куки при расположении b/f на разных доменах
 			}
 		})
@@ -48,6 +45,6 @@ class Auth extends BaseApi {
 };
 
 //инициализация класса авторизации
-const auth = new Auth(baseUrl, headers);
+const auth = new Auth();
 
 export default auth;
