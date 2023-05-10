@@ -59,10 +59,10 @@ app.use((err, req, res, next) => {
 
 // разрешённые адреса запросов
 const allowedCors = [
-  'http://okvokv-back.students.nomoredomains.monster',
-  'https://okvokv-back.students.nomoredomains.monster',
-  'http://okvokv-front.students.nomoredomains.monster',
-  'https://okvokv-front.students.nomoredomains.monster',
+  'http://okvokv-back.students.nomoredomains.monster/*',
+  'https://okvokv-back.students.nomoredomains.monster/*',
+  'http://okvokv-front.students.nomoredomains.monster/*',
+  'https://okvokv-front.students.nomoredomains.monster/*',
   'http://github.com/*',
   'https://github.com/*',
   'localhost:3000/*',
