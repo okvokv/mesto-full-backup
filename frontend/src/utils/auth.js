@@ -1,11 +1,11 @@
 // административные запросы
 import BaseApi from './BaseApi.js';
 class Auth extends BaseApi {
-	constructor(){
+	constructor() {
 		super();
-		this._headers = {'Content-Type': 'application/json'};
+		this._headers = { 'Content-Type': 'application/json' };
 	}
-	
+
 	//метод регистрации пользователя
 	registrate(_email, _password) {
 		return this._request('signup', {
@@ -27,18 +27,6 @@ class Auth extends BaseApi {
 				email: _email,
 				password: _password
 			})
-		})
-	};
-
-	//метод аутентификации(отправки жетона для проверки)
-	checkToken(_token) {
-		return this._request('users/me', {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-				authorization: `Bearer ${_token}`, // отсылать жетон или
-				credentials: 'include', // отсылать куки при расположении b/f на разных доменах
-			}
 		})
 	};
 

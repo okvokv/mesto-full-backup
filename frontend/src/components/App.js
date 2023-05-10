@@ -22,24 +22,32 @@ function App() {
   //---------------------------------------------------------------------------------
   //объявление данных пользователя в глобальной области
   const [currentUserData, setCurrentUserData] = useState({ name: 'Жак-Ив Кусто', about: 'Исследователь океана', avatar: avatar });
-
-  //аутентификация пользователя при открытии страницы, сверка жетона
-  useEffect(() => {
-    handleTokenCheck()
-  }, []);
-
   //объявление данных массива карточек в глобальной области
   const [cardsData, setCardsData] = useState([]);
+  //обьявление значения почты и пароля пользователя в глобальной области
+  const [userEmail, setUserEmail] = useState('');
+  const [userPwd, setUserPwd] = useState('')
+  //объявление состояния индикатора входа в глобальной области
+  const [loggedIn, setLoggedIn] = useState(false);
+  //задание переменной навигации и извлечения теущего адреса
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  //получение начальных данных с сервера, однократно
+  //получение начальных данных с сервера, то же самое, что и проверка жетона при входе, однократно
   useEffect(() => {
     api.getInitialData()
       .then(data => {
         const [currentUserData, cardsData] = data;
         setCurrentUserData(currentUserData);
         setCardsData(cardsData);
+        setUserEmail(currentUserData.email);
+        setLoggedIn(true);
+        navigate('/');
       })
-      .catch(err => console.log('Внутренняя ошибка: ', err))
+      .catch(err => {
+        setLoggedIn(false);
+        console.log('Внутренняя ошибка: ', err);
+      })
   }, []);
 
   //----------------------------------------------------------------------------------
@@ -69,34 +77,6 @@ function App() {
   };
 
   //----------------------------------------------------------------------------
-  //обьявление значения почты и пароля пользователя в глобальной области
-  const [userEmail, setUserEmail] = useState('');
-  const [userPwd, setUserPwd] = useState('')
-
-  //объявление состояния индикатора входа в глобальной области
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  //задание переменной навигации и извлечения теущего адреса
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  //функция отправки жетона для аутентификации
-  function handleTokenCheck() {
-    const token = localStorage.getItem('jwt');
-    if (token) {
-      // вызов ф-ии, отправляющей жетон в заголовках, а если он отправляется из кук ?
-      auth.checkToken(token)
-        .then((data) => {
-          setUserEmail(data.data.email);
-          setLoggedIn(true);
-          navigate('/');
-        })
-        .catch(err => {
-          setLoggedIn(false);
-          console.log('Внутренняя ошибка: ', err);
-        })
-    };
-  };
 
   //функция отправки данных для авторизации и обработки ответа
   function handleLogIn(email, password) {

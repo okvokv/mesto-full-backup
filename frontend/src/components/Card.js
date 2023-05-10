@@ -8,7 +8,7 @@ function Card(props) {
 	const currentUserData = React.useContext(CurrentUserContext);
 
 	//проверка владельца
-	const owned = (props.cardData.owner._id === currentUserData._id);
+	const owned = (props.cardData.ownerId === currentUserData._id);
 
 	//проверка наличия лайка на карточке
 	const liked = props.cardData.likes.find(like => like._id === currentUserData._id);
