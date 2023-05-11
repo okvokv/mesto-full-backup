@@ -11,8 +11,8 @@ function Card(props) {
 	const owned = (props.cardData.ownerId === currentUserData._id);
 
 	//проверка наличия лайка на карточке
-	const liked = props.cardData.likes.find(like => like._id === currentUserData._id);
-
+	const liked = props.cardData.likes.find(like => like === currentUserData._id);
+ 
 	//промежуточные функции:
 
 	function handleImageClick() {

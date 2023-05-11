@@ -242,7 +242,7 @@ function App() {
   //-----------------------------------------------------------------------
   //функция обработки нажатия на кнопку <Like>
   function handleLikeClick(cardId, liked) {
-    //запрос в api, получение обновлённых данных карточки и замена на них в массиве
+    //запрос в api, получение обновлённых данных карточки и замена их в массиве
     (liked ? api.deleteLike(cardId) : api.setLike(cardId))
       .then(newCardData => setCardsData(cardsData.map(cardData => (cardData._id === cardId) ? newCardData : cardData)))
       .catch(err => console.log('Внутренняя ошибка: ', err))
